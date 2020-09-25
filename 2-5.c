@@ -37,12 +37,9 @@ int main(void){
   printf("Quantity:%d\n", orange_count);
   printf("Discount rate:%d %%\n", orange_discount);
   orange_total = (orange_price * orange_count) * (1-(orange_discount*0.01));
-  printf("Total price of oranges:%.1f yen\n", orange_total);
+  printf("Total amount of oranges:%.1f yen\n", orange_total);
 
   printf("[Total]\n");
   printf("Total amount:%.1f yen", apple_total + orange_total);
-
-  scanf("%d", &apple_count);
-  /* デバッグ用 */
   return 0;
 }
