@@ -14,15 +14,14 @@ int main(void){
   if(apple_count+orange_count>=10&&orange_count<10&&apple_count<10){
     apple_discount = 5;
     orange_discount = 5;
-  } else {
-    if(apple_count>=20){
-      apple_discount = 20;
-    } else if(apple_count>=10){
-      apple_discount = 10;
-    }
-    if(orange_count>=10){
-      orange_discount = 20;
-    }
+  }
+  if(apple_count>=20){
+    apple_discount = 20;
+  } else if(apple_count>=10){
+    apple_discount = 10;
+  }
+  if(orange_count>=10){
+    orange_discount = 20;
   }
 
   printf("[apple]\n");
