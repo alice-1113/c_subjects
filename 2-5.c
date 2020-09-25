@@ -48,5 +48,6 @@ int main(void){
   printf("Total amount:%.1f yen", apple_total + orange_total);
 
   scanf("%d", &apple_count);
+  /* デバッグ用 */
   return 0;
 }
