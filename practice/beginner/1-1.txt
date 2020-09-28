@@ -1,6 +1,6 @@
 2つの整数値a, bを入力し、足した結果を表示するプログラムを書きなさい。
 
-出力例:
-Input number A:3
-Input number B:4
-A + B = 7
+実行例:
+Input A:3
+Input B:4
+7
