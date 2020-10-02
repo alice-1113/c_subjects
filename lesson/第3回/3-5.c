@@ -4,7 +4,7 @@ int main(void){
     int n, value;
     int num_max, num_min;
     int max, min, sum=0;
-    float average;
+    double average;
 
     printf("Input the number of students: ");
     scanf("%d", &n);
