@@ -2,10 +2,18 @@
 
 int main(void){
     int min, max;
-    int total;
+    int sum=0;
 
-    while(true){
-        ...;
+    printf("min: ");
+    scanf("%d", &min);
+    printf("max: ");
+    scanf("%d", &max);
+
+    while(min<=max){
+        sum += min;
+        min += 1;
     }
+    printf("sum: %d\n", sum);
+    scanf("%d", &sum);
     return 0;
 }
