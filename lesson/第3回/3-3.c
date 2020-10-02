@@ -14,6 +14,5 @@ int main(void){
         min += 1;
     }
     printf("sum: %d\n", sum);
-    scanf("%d", &sum);
     return 0;
 }
