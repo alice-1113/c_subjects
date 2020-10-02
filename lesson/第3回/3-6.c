@@ -10,10 +10,10 @@ int main(void){
 
     for(int y=1; y<=h; y++){
         for(int x=1; x<=w; x++){
-            if(){
-                printf(".");
-            } else {
+            if((y==1||y==h)||(x==1||x==w)){
                 printf("#");
+            } else {
+                printf(".");
             }
         }
         printf("\n");
