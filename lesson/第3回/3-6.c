@@ -1,12 +1,23 @@
 #include <stdio.h>
 
 int main(void){
-    int m, n;
-    for(int y=0; y<m; y++){
-        for(int x=0; x<n; x++){
-            ...;
+    int h,w;
+
+    printf("H: ");
+    scanf("%d", &h);
+    printf("W: ");
+    scanf("%d", &w);
+
+    for(int y=1; y<=h; y++){
+        for(int x=1; x<=w; x++){
+            if(){
+                printf(".");
+            } else {
+                printf("#");
+            }
         }
-        ...;
+        printf("\n");
     }
+    scanf("%d", &h);
     return 0;
 }
