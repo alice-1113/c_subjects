@@ -6,7 +6,6 @@ int main(void){
     printf("Input a positive integer\n");
     scanf("%d", &num);
     while(num!=-1){
-        scanf("%d", &num);
         if(num==-1){
             break;
         }
@@ -20,6 +19,7 @@ int main(void){
             printf("%d is not a multiple of 2 and 5", num);
         }
         printf("\n");
+        scanf("%d", &num);
     }
     return 0;
 }
