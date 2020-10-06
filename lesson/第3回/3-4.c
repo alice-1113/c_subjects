@@ -7,7 +7,7 @@ int main(void){
     scanf("%d", &num);
     while(num!=-1){
         if(num==-1){
-            break;
+            return 0;
         }
         if(num%5==0&&num%2==0){
             printf("%d is a multiple of 2 and 5", num);
