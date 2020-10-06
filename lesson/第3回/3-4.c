@@ -4,10 +4,11 @@ int main(void){
     int num;
 
     printf("Input a positive integer\n");
+    scanf("%d", &num);
     while(num!=-1){
         scanf("%d", &num);
         if(num==-1){
-            return 0;
+            break;
         }
         if(num%5==0&&num%2==0){
             printf("%d is a multiple of 2 and 5", num);
