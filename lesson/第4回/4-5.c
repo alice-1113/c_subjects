@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 
-// 暫定 修正する可能性あり。
-
 double distance(int x1, int y1, int x2, int y2);
 
 int main(void){
