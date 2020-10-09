@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int error_message();
 
@@ -6,11 +7,13 @@ int get_month();
 
 int main(void){
     int bmonth, nmonth;
+    int diff;
     printf("What month were you born?\n");
     bmonth = get_month();
     printf("What month is it now?\n");
     nmonth = get_month();
-    printf("There are %d months until your birth month.\n");
+    diff = abs(bmonth - nmonth);
+    printf("There are %d months until your birth month.\n", diff);
     return 0;
 }
 
