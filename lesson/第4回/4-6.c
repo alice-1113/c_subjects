@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int error_message();
+void error_message(void);
 
-int get_month();
+int get_month(void);
 
 int main(void){
     int bmonth, nmonth;
@@ -13,16 +13,21 @@ int main(void){
     printf("What month is it now?\n");
     nmonth = get_month();
     diff = abs(bmonth - nmonth);
-    printf("There are %d months until your birth month.\n", diff);
+    if(diff==0){
+        printf("This month is your birth month.");
+    } else if(diff==1){
+        printf("There is one month until your birth month.");
+    } else {
+        printf("There are %d months until your birth month.\n", diff);
+    }
     return 0;
 }
 
-int error_message(){
-    printf("ERROR: wrong number!");
-    return 0;
+void error_message(void){
+    printf("ERROR : invalid value!");
 }
 
-int get_month(){
+int get_month(void){
     int month;
     do {
         printf("MONTH : ");

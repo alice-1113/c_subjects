@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int get_month();
+int get_month(void);
 
 int main(void){
     int month;
@@ -47,11 +47,11 @@ int main(void){
         default:
             break;
     }
-    printf("\n");
+    printf(".\n");
     return 0;
 }
 
-int get_month(){
+int get_month(void){
     int month;
     do {
         printf("MONTH : ");

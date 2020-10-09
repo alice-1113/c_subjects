@@ -21,7 +21,7 @@ int main(void){
     scanf("%d", &y2);
 
     kyori = distance(x1, y1, x2, y2);
-    printf("The distance between two points is %lf\n", kyori);
+    printf("The distance between two points is %lf.\n", kyori);
     return 0;
 }
 

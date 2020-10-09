@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int error_message();
+void error_message(void);
 
 int main(void){
     int en;
@@ -8,14 +8,13 @@ int main(void){
     printf("Input an even number : ");
     scanf("%d", &en);
     if(en%2==0){
-        printf("The input value %d is even\n", en);
+        printf("The input number %d is even.\n", en);
     } else {
         error_message();
     }
     return 0;
 }
 
-int error_message(){
-    prinf("ERROR: invalid value!");
-    return 0
+void error_message(void){
+    printf("ERROR : invalid value!");
 }
