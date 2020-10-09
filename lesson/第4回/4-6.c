@@ -14,9 +14,9 @@ int main(void){
     nmonth = get_month();
     diff = abs(bmonth - nmonth);
     if(diff==0){
-        printf("This month is your birth month.");
+        printf("This month is your birth month.\n");
     } else if(diff==1){
-        printf("There is one month until your birth month.");
+        printf("There is one month until your birth month.\n");
     } else {
         printf("There are %d months until your birth month.\n", diff);
     }
@@ -24,7 +24,7 @@ int main(void){
 }
 
 void error_message(void){
-    printf("ERROR : invalid value!");
+    printf("ERROR : invalid value!\n");
 }
 
 int get_month(void){
@@ -37,5 +37,5 @@ int get_month(void){
         } else {
             error_message();
         }
-    } while((12<month)&&(month<1));
+    } while((12<month)||(month<1));
 }

@@ -6,12 +6,12 @@ int main(void){
     int n;
 
     do {
-        printf("number of asterisks :");
+        printf("number of asterisks : ");
         scanf("%d", &n);
         if(-1<n){
             draw_char(n);
         } else {
-            printf("ERROR: invalid value!");
+            printf("ERROR : invalid value!\n");
         }
     } while (n<0);
 
