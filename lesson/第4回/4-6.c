@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 void error_message(void);
 
@@ -12,7 +11,13 @@ int main(void){
     bmonth = get_month();
     printf("What month is it now?\n");
     nmonth = get_month();
-    diff = abs(bmonth - nmonth);
+    diff = bmonth - nmonth;
+    if(diff<5){
+        diff = diff + 12;
+        if(diff<0){
+            diff *= -1;
+        }
+    }
     if(diff==0){
         printf("This month is your birth month.\n");
     } else if(diff==1){
