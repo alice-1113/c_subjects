@@ -62,4 +62,5 @@ int get_month(void){
             printf("ERROR : invalid value!\n");
         }
     } while((12<month)||(month<1));
+    return month;
 }
