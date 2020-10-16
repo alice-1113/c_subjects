@@ -31,9 +31,9 @@ int main(void) {
 
 int max3(int x, int y, int z) {
     int max;
-
-    /* プログラムを記述せよ */
-
+    if(x>y&&x>z) max = x;
+    else if(y>x&&y>z) max = y;
+    else if(z>x&&z>y) max = z;
     return max;
 }
 
@@ -43,14 +43,14 @@ int max33(int x, int y, int z) {
     int tmp;
 
     if (count == 0) { /* 関数が初めて呼ばれたときの処理 */
-
-        /* プログラムを記述せよ */
-
+        max = max3(x, y, z);
     } else { /* 関数が2回目以降に呼ばれたときの処理 */
-
-        /* プログラムを記述せよ */
-
+        tmp = max3(x, y, z);
+        if(tmp>max){
+            max = tmp;
+        }
     }
+    count++;
 
     return max;
 }
