@@ -21,8 +21,9 @@ int main(void) {
 }
 
 int max3(int x, int y, int z){
-    if(x>y&&x>z) return x;
-    else if(y>x&&y>z) return y;
-    else if(z>x&&z>y) return z;
-    else return 0;
+    int max;
+    if(x>y&&x>z) max = x;
+    else if(y>x&&y>z) max = y;
+    else max = z;
+    return max;
 }
