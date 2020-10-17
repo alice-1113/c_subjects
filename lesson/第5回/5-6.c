@@ -38,10 +38,9 @@ int max_value(int n){
 
     if(count==0){
         LocallyMaxVal = n;
-    } else {
-        if(n>LocallyMaxVal){
-            LocallyMaxVal = n;
-        }
+    }
+    if(n>LocallyMaxVal){
+        LocallyMaxVal = n;
     }
     count++;
     return LocallyMaxVal;
@@ -53,10 +52,9 @@ int min_value(int n){
 
     if(count==0){
         LocallyMinVal = n;
-    } else {
-        if(n<LocallyMinVal){
-            LocallyMinVal = n;
-        }
+    }
+    if(n<LocallyMinVal){
+        LocallyMinVal = n;
     }
     count++;
     return LocallyMinVal;
