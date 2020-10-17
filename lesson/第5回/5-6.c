@@ -36,10 +36,7 @@ int max_value(int n){
     static int LocallyMaxVal;
     static int count=0; // 呼び出し回数
 
-    if(count==0){
-        LocallyMaxVal = n;
-    }
-    if(n>LocallyMaxVal){
+    if((count==0)||(n>LocallyMaxVal)){
         LocallyMaxVal = n;
     }
     count++;
@@ -50,10 +47,7 @@ int min_value(int n){
     static int LocallyMinVal;
     static int count=0; // 呼び出し回数
 
-    if(count==0){
-        LocallyMinVal = n;
-    }
-    if(n<LocallyMinVal){
+    if((count==0)||(n<LocallyMinVal)){
         LocallyMinVal = n;
     }
     count++;
