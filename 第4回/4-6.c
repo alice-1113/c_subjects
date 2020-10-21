@@ -31,7 +31,7 @@ void error_message(void){
 
 int get_month(void){
     int month;
-    do { // (12<month)||(month<1) でループ
+    do { // (12<month)||(month<1) で再入力
         printf("MONTH : ");
         scanf("%d", &month);
         if((0<month)&&(month<13)){
