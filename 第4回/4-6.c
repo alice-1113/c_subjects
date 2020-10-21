@@ -12,11 +12,8 @@ int main(void){
     printf("What month is it now?\n");
     nmonth = get_month();
     diff = bmonth - nmonth;
-    if(diff<5){
+    if(diff<0){
         diff = diff + 12;
-        if(diff<0){
-            diff *= -1;
-        }
     }
     if(diff==0){
         printf("This month is your birth month.\n");
@@ -34,13 +31,14 @@ void error_message(void){
 
 int get_month(void){
     int month;
-    do {
+    do { // (12<month)||(month<1) でループ
         printf("MONTH : ");
         scanf("%d", &month);
         if((0<month)&&(month<13)){
-            return month;
+            break;
         } else {
             error_message();
         }
     } while((12<month)||(month<1));
+    return month;
 }

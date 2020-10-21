@@ -57,7 +57,7 @@ int get_month(void){
         printf("MONTH : ");
         scanf("%d", &month);
         if((0<month)&&(month<13)){
-            return month;
+            break;
         } else {
             printf("ERROR : invalid value!\n");
         }
