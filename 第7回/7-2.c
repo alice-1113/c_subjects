@@ -6,17 +6,17 @@ int main(void){
     int array[SIZE];
 
     for(int i=0; i<SIZE; i++){
-        printf("Input Data No. %d", i);
+        printf("Input Data No.%2d : ", i+1);
         scanf("%d", &array[i]);
         total += array[i];
     }
 
-    printf("Data List:\n")
-    for(int j=0; j<size; j++){
-        printf("[No. %d] %d\n", j, array[j]);
+    printf("\nData List:\n");
+    for(int j=0; j<SIZE; j++){
+        printf("[No.%2d] %d\n", j+1, array[j]);
     }
 
-    printf("Total value = %d\n", total);
+    printf("\nTotal value = %d\n", total);
 
     return 0;
 }
