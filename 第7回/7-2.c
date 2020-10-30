@@ -13,7 +13,7 @@ int main(void){
 
     printf("Data List:\n")
     for(int j=0; j<size; j++){
-        printf("[No. %d] %d\n", j, array[j])
+        printf("[No. %d] %d\n", j, array[j]);
     }
 
     printf("Total value = %d\n", total);
