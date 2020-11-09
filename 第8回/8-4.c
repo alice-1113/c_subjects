@@ -41,5 +41,5 @@ double inner_product3D( double vector1[ ], double vector2[ ] ){
     for(int i=0; i<SIZE; i++){
         inner += vector1[i]*vector2[i];
     }
-    return 0;
+    return inner;
 }
