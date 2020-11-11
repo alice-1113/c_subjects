@@ -9,12 +9,9 @@ int main(void){
 
     printf("Please enter the number of students（1～20）:");
     scanf("%d", &n);
-    for(int i=0; i<SIZE; i++){
+    for(int i=0; i<n; i++){
         printf("No.%d:", i+1);
         scanf("%d", &score[i]);
-        if(i+1 == n){
-            break;
-        }
     }
     max = max_array(score, n);
     printf("The maximum score of %d students is %d points.\n", n, max);
