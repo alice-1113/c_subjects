@@ -17,7 +17,7 @@ int main(void){
     outer_product3D(vector1, vector2, vector3);
     printf("\nVector 3 (outer product) perpendicular to the two vectors is(");
     printf("%.2lf,%.2lf,%.2lf).\n\n", vector3[0], vector3[1], vector3[2]);
-    printf("The inner product of the two input vectors is %.2lf.\n", inner_product3D(vector1, vector3));
+    printf("The inner product of the two input vectors is %.2lf.\n", inner_product3D(vector1, vector));
     printf("The inner product of Vector 2 and Vecor 3 is %.2lf.", inner_product3D(vector2, vector3));
     return 0;
 }
