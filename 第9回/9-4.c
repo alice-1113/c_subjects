@@ -36,8 +36,7 @@ int main(void) {
 
 void read_score(int score[][3], int n) {
     for (int i = 0; i < n; i++) {
-        // Student が Studnetになってるので注意
-        printf("Studnet #%d\n", i+1);
+        printf("Student #%d\n", i+1);
         for (int j = 0; j < SUBJECT; j++) {
             do {
                 // 0以上100以下の場合はループを抜ける.
