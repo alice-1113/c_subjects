@@ -3,14 +3,14 @@
 
 #define NUM 4  // ４名
 #define LIM 50  // 50文字(null文字含む)まで
-#define SIZE 5  // yes or no
+#define SIZE 5
 
 int main(void){
     char name[NUM][LIM];
     char home[NUM][LIM];
-    char rep[SIZE];
-    char pref[LIM];
-    int res = 1;
+    char rep[SIZE];  // yes or no
+    char pref[LIM];  // for serach
+    int res = 1;  // found or not found
 
     for(int i=0; i<NUM; i++){
         printf("[No.%d]\n", i+1);
