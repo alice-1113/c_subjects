@@ -73,6 +73,19 @@ scanf(...){};
 ```
 に置き換えられるといった具合である.
 
+## コメントアウト
+コメントアウトとは, ソースコード中にメモや注意を書くために使われる.
+C言語では`//`や`/* */`といったものが使われている.
+
+```sample.c
+// これはコメント
+/*
+ * これも
+ * コメント
+ */
+```
+
+
 ## 型（タイプ）について
 次に考えなければならないのは, 型である.
 どこで使われているか?
@@ -112,6 +125,8 @@ scanf(...){};
 C言語では
 
 `変数の型 変数の名前 = 変数の中身;`
+もしくは
+`変数の型 変数の名前;`
 
 と記述する.
 
@@ -121,6 +136,7 @@ C言語では
 #include <stdio.h>
 
 int main(void){
+    int i;
     int age = 19;
     double pi = 3.14;
     char suffix = 'c';
@@ -137,9 +153,11 @@ int main(void){
 #include <stdio.h>
 
 int main(void){
+    int i;
     int age = 19;
     double pi = 3.14;
     char suffix = 'c';
+    i = 0;
     printf("age is %d\n", age);
     printf("pi is %lf\n", pi);
     printf("suffix is %c\n", suffix);
@@ -173,3 +191,58 @@ int main(void){
 今は改行を意味する, ということだけ覚えていればよい.
 
 ## 関数を作ってみる
+### 関数の作り方
+
+基本的な形は
+
+`関数の戻り値の型 関数の名前(関数の引数){
+処理 }`
+
+である.
+
+具体例を以下に示す.
+以下のadd関数は引数を2つ受け取り, その合計を返す関数である.
+
+```sample.c
+#include <stdio.h>
+
+int add(int a, int b){};  // プロトタイプ宣言
+
+int main(void){
+    ...
+    return 0;
+}
+
+int add(int a, int b){
+    return a + b;
+}
+
+```
+
+
+### 関数の使い方
+
+使い方を以下に示す.
+
+`add(x, y);`が関数呼び出しの部分である.
+
+```sample.c
+#include <stdio.h>
+
+int add(int a, int b){};  // プロトタイプ宣言
+
+int main(void){
+    int sum;
+    int x, y;
+    x = 10;
+    y = 20;
+    sum = add(x, y);
+    printf("x + y = %d\n", sum);
+    return 0;
+}
+
+int add(int a, int b){
+    return a + b;
+}
+
+```
