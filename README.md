@@ -6,6 +6,49 @@
 - 万が一,利用する場合は個人の責任でお願いします.
 
 # C言語入門及び基礎
+## 目次
+1. [C言語とは](##C言語とは)
+2. [コンパイル方法](##コンパイル方法)
+3. [実行方法](##実行方法)
+4. [main関数とは](##main関数とは)
+5. [#includeって何?](###includeって何?)
+6. [コメントアウト](##コメントアウト)
+7. [型（タイプ）について](
+##型（タイプ）について)
+8. [変数とは何ぞや?](##変数とは何ぞや?)
+   1. [変数とは(Wikipediaより引用)](###変数とは(Wikipediaより引用))
+   2. [変数の定義の仕方](###変数の定義の仕方)
+   3. [変数の使い方](###変数の使い方)
+9. [演算子](##演算子)
+10. [関数](##関数)
+    1. [関数の作り方](###関数の作り方)
+    2. [関数の使い方](###関数の使い方)
+    3. [そういえばプロトタイプ宣言って?](###そういえばプロトタイプ宣言って?)
+       1. [なぜプロトタイプ宣言を書くのか](####なぜプロトタイプ宣言を書くのか)
+       2. [プロトタイプ宣言の方法](####プロトタイプ宣言の方法)
+11. [条件分岐](##条件分岐)
+    1. [条件分岐とは?](###条件分岐とは?)
+    2. [条件分岐の記述の仕方](###条件分岐の記述の仕方)
+    3. [条件式とは](####条件式とは)
+    4. [書いてみる](###書いてみる)
+    5. [条件分岐2](###条件分岐2)
+12. [繰り返し処理1](##繰り返し処理1)
+    1. [forループ](###forループ)
+        1. [インクリメントって?](####インクリメントって?)
+    2. [whileループ](###whileループ)
+13. [繰り返し処理2](##繰り返し処理2)
+14. [繰り返し処理3](##繰り返し処理3)
+15. [繰り返し処理4](##繰り返し処理4)
+16. [配列](##配列)
+17. [プリプロセッサ](##プリプロセッサ)
+18. [文字列](##文字列)
+19. [二次元配列及びn次元配列](##二次元配列及びn次元配列)
+20. [今更だけど式と文の違いは何?](##今更だけど式と文の違いは何?)
+21. [構造体](##構造体)
+    1. [構造体の配列](###構造体の配列)
+    2. [構造体と関数](###構造体と関数)
+    3. [typedef宣言](###typedef宣言)
+
 ## C言語とは
 [C言語 - Wikipedia](https://ja.wikipedia.org/wiki/C%E8%A8%80%E8%AA%9E)
 
@@ -65,8 +108,8 @@ stdioとはstandard input/output の略で、日本語では標準入出力と�
 ```
 は
 ```sample.c
-printf(...){};
-scanf(...){};
+int printf(...);
+int scanf(...);
 .
 .
 .
@@ -208,19 +251,21 @@ int main(void){
 以下にサンプルを示す.
 ```sample.c
 int main(void){
-    int x, y;
+    int x, y, z;
     int a, b;
     x = 10;
     y = x + 20;
-    a = y / 3;
-    b = y % 3;
+    z = y - x;
+    a = y * 3;
+    b = a / 5;
+    c = x % y;
 }
 ```
 
 `x = x + 1`のようなコードは
 `x += 1`と記述することもできる.
 
-## 関数を作ってみる
+## 関数
 ### 関数の作り方
 
 基本的な形は
@@ -236,7 +281,7 @@ int main(void){
 ```sample.c
 #include <stdio.h>
 
-int add(int a, int b){};  // プロトタイプ宣言
+int add(int a, int b);  // プロトタイプ宣言
 
 int main(void){
     ...
@@ -254,7 +299,7 @@ int add(int a, int b){
 ```sample.c
 #include <stdio.h>
 
-void show(int x){};
+void show(int x);
 
 int main(void){
     int x = 12;
@@ -277,7 +322,7 @@ void show(int x){
 ```sample.c
 #include <stdio.h>
 
-int add(int a, int b){};  // プロトタイプ宣言
+int add(int a, int b);  // プロトタイプ宣言
 
 int main(void){
     int sum;
@@ -328,14 +373,14 @@ main関数が下の方にいき, 処理を確認するのが大変になる.
 
 関数の処理を一切書かずに, 最後にセミコロン(;)をつけるだけである.
 
-`int add(int x, int y){};`や`void show(int data){};`のように記述する.
+`int add(int x, int y);`や`void show(int data);`のように記述する.
 
-## 条件分岐を使ってみよう
+## 条件分岐
 ### 条件分岐とは?
 文字通り, 条件によって分岐すること.
 例えば, ~~がAならXの処理, BならYの処理みたいな感じ.
 
-### 条件分岐
+### 条件分岐の記述の仕方
 `if`文を使う.
 
 `if(条件式){処理}`と記述する.
@@ -823,7 +868,7 @@ int main(void){
 
 `'\0'`はヌル文字と呼び, 文字列の終端を表す.
 
-## 二次元配列, 及び n次元配列
+## 二次元配列及びn次元配列
 二次元配列とは配列の配列.
 
 n次元配列とは配列の配列の...配列.
@@ -862,10 +907,170 @@ int main(void){
 このように記述できる.
 
 
-## 今更だけど, 式と文の違いって何よ
+## 今更だけど式と文の違いは何?
 簡単に言えば,
 
 式は変数に代入できるもので,
 
 文は変数に代入できないものです.
+
+## 構造体
+構造体とは, 複数の型のデータをひとまとまりにしたもの.
+
+基本的な構文を示す.
+
+```
+struct 構造体の名前 {
+    型 要素;
+    型 要素;
+    ...
+};
+```
+
+以下に例を示す. プロフィールを構造体で表した.
+
+```sample.c
+#include <stdio.h>
+
+struct profile {
+    char name[20];
+    int age;
+    double weight;
+};
+
+int main(void){
+    ...
+    return 0;
+}
+```
+
+構造体は変数として利用することができる.
+内部のデータには`変数名.要素`とすることでアクセスできる.
+
+サンプルコードを示す.
+```sample.c
+#include <stdio.h>
+
+struct profile {
+    char name[20];
+    int age;
+    double weight;
+};
+
+int main(void){
+    struct profile jiro = {"jiro", 19, 64.7};
+    /* もしくは
+     * jiro.name = "jiro";
+     * jiro.age = 19;
+     * jiro.weight = 64.7;
+     * このように初期化することもできる.
+     */
+    return 0;
+}
+```
+
+### 構造体の配列
+普通の配列と同様に扱うことができる.
+
+以下に例を示す.
+```sample.c
+#include <stdio.h>
+
+struct profile {
+    char name[20];
+    int age;
+    double weight;
+};
+
+int main(void){
+    struct profile students[3] = {
+        {"jiro", 19, 64.7},
+        {"taro", 18, 57.5},
+        {"bob", 19, 74.1}
+    };
+    return 0;
+}
+```
+
+### 構造体と関数
+構造体は関数の引数や戻り値として使うことができる.
+
+引数として使う場合 `struct 構造体の名前 内部で扱う名前`
+
+戻り値として使う場合 `struct 構造体の名前 関数の名前`
+
+として記述する
+
+
+サンプルコードを示す.
+```sample.c
+#include <stdio.h>
+
+struct profile {
+    char name[20];
+    int age;
+    double weight;
+};
+
+void show_profile(struct profile people);
+struct profile set_profile(struct profile people);
+
+int main(void){
+    struct profile students[3];
+    for(int i=0; i<3; i++){
+        students[i] = set_profile(students[i]);
+        show_profile(students[i]);
+    }
+    return 0;
+}
+
+void show_profile(struct profile people){
+    printf("name = %s\n", people.name);
+    printf("age = %d\n", people.age);
+    printf("weight = %lf\n", people.weight);
+}
+
+struct profile set_profile(struct profile people){
+    scanf("%s", &people.name);
+    scanf("%d", %people.age);
+    scanf("%lf", %people.weight);
+    return people;
+}
+```
+
+### typedef宣言
+typedef宣言は, 型名を任意の型名にすることができる.
+
+記述の方法を示す.
+
+`typedef 型名 任意の型名;`
+
+例として, int型をAGE型として宣言する.
+
+`typedef int AGE;`
+
+と記述する.
+
+構造体でのtypedefのサンプルコードを以下に示す.
+
+```sample.c
+#include <stdio.h>
+
+typedef struct {
+    char name[20];
+    int age;
+    double weight;
+} PROFILE;
+
+int main(void){
+    PROFILE students[3] = {
+        {"jiro", 19, 64.7},
+        {"taro", 18, 57.5},
+        {"bob", 19, 74.1}
+    };
+    return 0;
+}
+```
+
+`struct 構造体の名前`をそのまま置き換えることができる.
 
