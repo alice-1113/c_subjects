@@ -1087,7 +1087,7 @@ void show_profile(struct profile people){
 }
 
 struct profile set_profile(struct profile people){
-    scanf("%s", &people.name);
+    scanf("%s", people.name);
     scanf("%d", &people.age);
     scanf("%lf", &people.weight);
     return people;
