@@ -1,3 +1,4 @@
+// リファクタリングver
 #include <stdio.h>
 #define LEN_NAME 17
 
@@ -19,13 +20,14 @@ void print_playdata(PLAYDATA data);
 
 
 int main(void) {
-    int turn;
-    int endf;
+    int turn;  // -1 or 1
+    int endf;  // 終了フラグ
+    int judgef; // ジャッジフラグ
     char str[4];
     PLAYDATA playdata = {
-          0,   0,  0,  0,  // 対戦数 勝利数*2 引き分け数
-        0.0, 0.0,          // 勝率*2
-         "",  ""           // 名前*2
+          0,   0,  0,  0,  // 対戦数 p1勝利数, p2勝利数, 引き分け数
+        0.0, 0.0,          // p1勝率, p2勝率
+         "",  ""           // p1名前, p2名前
     };
 
     int board[3][3] = {
@@ -43,37 +45,29 @@ int main(void) {
     printf("\n");
 
     while(1){
-        endf = 0;
         turn = 1;
         playdata.num_play++;
         for (int i = 0; i < 9; i++) {
+            endf = 1;
             mark_board(board, turn);
             print_board(board);
-            switch (judge(board)) {
-                case 1:
-                    printf("Player1 (o), %s wins!\n", playdata.player1);
-                    playdata.num_player1_win++;
-                    endf = 1;
-                    break;
-                case -1:
-                    printf("Player2 (x), %s wins!\n", playdata.player2);
-                    playdata.num_player2_win++;
-                    endf = 1;
-                    break;
-                case -2:
-                    printf("Draw.\n");
-                    playdata.num_draw++;
-                    endf = 1;
-                    break;
-                default:
-                    turn *= -1;
-                    break;
+            judgef = judge(board);
+            if (judgef == 1){
+                printf("Player1 (o), %s wins!\n", playdata.player1);
+                playdata.num_player1_win++;
+            } else if (judgef == -1){
+                printf("Player2 (x), %s wins!\n", playdata.player2);
+                playdata.num_player2_win++;
+            } else if (judgef == -2){
+                printf("Draw.\n");
+                playdata.num_draw++;
+            } else {
+                endf = 0;
+                turn *= -1;
             }
             playdata.ave_player1_win = (double)playdata.num_player1_win / (double)playdata.num_play;
             playdata.ave_player2_win = (double)playdata.num_player2_win / (double)playdata.num_play;
-            if(endf==1){
-                break;
-            }
+            if (endf) break;
         }
         printf("\nContinue? (yes/no): ");
         scanf("%s", str);
@@ -95,42 +89,33 @@ void print_board(int board[3][3]) {
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             printf("|");
-            if (board[i][j] == 1) {
-                printf("o");
-            } else if (board[i][j] == 0) {
-                printf(" ");
-            } else if (board[i][j] == -1) {
-                printf("x");
-            }
+            if (board[i][j] == 1) printf("o");
+            else if (board[i][j] == 0) printf(" ");
+            else if (board[i][j] == -1) printf("x");
         }
-        printf("|\n");
+        printf("|");
+        printf("\n");
     }
 }
 
 void mark_board(int board[3][3], int turn) {
-    int vertical, horizontal;  // 縦, 横
-    if (turn == 1) {
-        printf("Player1's turn (o)\n");
-    } else if (turn == -1) {
-        printf("Player2's turn (x)\n");
-    }
+    int ver, hor;  // 縦, 横
+    if (turn) printf("Player1's turn (o)\n");
+    else printf("Player2's turn (x)\n");
 
     while (1) {
         printf("What is the vertical position? ");
-        scanf("%d", &vertical);
+        scanf("%d", &ver);
         printf("What is the horizontal position? ");
-        scanf("%d", &horizontal);
+        scanf("%d", &hor);
 
-        if (((-1 < vertical) && (vertical < 3)) &&
-            ((-1 < horizontal) && (horizontal < 3))) {
-            if (board[vertical][horizontal] == 0) {
-                break;
-            }
+        if (((-1 < ver) && (ver < 3)) && ((-1 < hor) && (hor < 3))) {
+            if (board[ver][hor] == 0) break;
         }
 
         printf("Cannot put there\n");
     }
-    board[vertical][horizontal] = turn;
+    board[ver][hor] = turn;
 }
 
 int judge(int board[3][3]) {
@@ -154,7 +139,7 @@ int judge(int board[3][3]) {
         }
     }
 
-    //　縦横の判定
+    // 縦横の判定
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             h[i] += map[i][j] * board[i][j];
